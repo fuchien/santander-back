@@ -1,11 +1,13 @@
 const clients = require('./clients')
+const books = require('./books')
 
 const routes = (server) => {
 
     clients(server)
+    books(server)
 
     server.get(`/`, (req, res, next) => {
-        console.log(`entrou`)
+        res.send(`Hello World!`)
     })
 }
 

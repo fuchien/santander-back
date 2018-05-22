@@ -14,7 +14,7 @@ function ClientsController () {
     this.postClient = async (req, res, next) => {
         try {
             let client = await clientsService.postClient(req.body)
-            res.status(200).json(client.datas)
+            res.status(200).json(client)
         } catch (err) {
             res.status(400).json(err)
         }        
