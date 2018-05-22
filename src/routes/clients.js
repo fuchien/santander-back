@@ -2,9 +2,9 @@ const ClientsController = require('../controllers/clients/clients')()
 
 const clients = (server) => {
 
-    server.get(`/clients`, ClientsController.getAllClients.bind(ClientsController))
-    server.post(`/clients`, ClientsController.postClient.bind(ClientsController))
-    server.get(`/clients/:name`, ClientsController.getClientByName.bind(ClientsController))
+    server.get(`/users`, ClientsController.getAllClients.bind(ClientsController))
+    server.post(`/users/user`, ClientsController.postClient.bind(ClientsController))
+    server.get(`/users/by-name/:name`, ClientsController.getClientByName.bind(ClientsController))
 }
 
 module.exports = clients
