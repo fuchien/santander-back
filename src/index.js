@@ -1,5 +1,6 @@
 const server = require('./server')
 const config = require('./config')
+const datasource = require('./config/datasource')
 
 server.listen(config.port, () => {
 
