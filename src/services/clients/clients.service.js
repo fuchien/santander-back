@@ -33,6 +33,26 @@ function ClientsService () {
                 })
         })
     }
+
+    this.getDataByName = (name) => {
+
+        return new Promise((resolve, reject) => {
+
+            Clients.findAll({
+                where: {
+                    clientName: {
+                        $like : `%${name}%`
+                    }
+                }
+            })
+            .then(clients => {
+                resolve(clients)
+            })
+            .catch(err => {
+                reject(err)
+            })
+        })
+    }
 }
 
 module.exports = () => new ClientsService()

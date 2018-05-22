@@ -19,6 +19,15 @@ function ClientsController () {
             res.status(400).json(err)
         }        
     }
+
+    this.getDataByName = async (req, res, next) => {
+        try {
+            let clients = await clientsService.getDataByName(req.params.name)
+            res.status(200).json(clients)
+        } catch (err) {
+            res.status(400).json(err)
+        } 
+    }
 }
 
 module.exports = () => new ClientsController()
