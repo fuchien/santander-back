@@ -11,7 +11,7 @@ function ClientsService () {
                 .then(client => {
                     console.log(client)
                     resolve({
-                        data: client.dataValues,
+                        datas: client.dataValues,
                         msg: 'Success to save!'
                     })
                 }).catch(err => {
