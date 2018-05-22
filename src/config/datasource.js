@@ -19,7 +19,7 @@ const loadModels = (sequelize) => {
 
 module.exports = () => {
 
-    if (!datase) {
+    if (!database) {
         sequelize = new Sequelize(
             config.database,
             config.username,
