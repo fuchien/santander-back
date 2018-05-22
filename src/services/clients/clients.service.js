@@ -3,7 +3,7 @@ const Clients = app.datasource.models.Clients
 
 function ClientsService () {
 
-    this.postData = (data) => {
+    this.postClient = (data) => {
 
         return new Promise((resolve, reject) => {
 
@@ -20,7 +20,7 @@ function ClientsService () {
         })
     }
 
-    this.getAllData = () => {
+    this.getAllClients = () => {
 
         return new Promise((resolve, reject) => {
 
@@ -34,7 +34,7 @@ function ClientsService () {
         })
     }
 
-    this.getDataByName = (name) => {
+    this.getClientByName = (name) => {
 
         return new Promise((resolve, reject) => {
 
