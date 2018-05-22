@@ -1,10 +1,10 @@
-const datasource = require('../../config/datasource')()
-const Clients = datasource.models.Clients
+const app = require('../../server')
+const Clients = app.datasource.models.Clients
 
 function ClientsController () {
 
     this.getData = (req, res, next) => {
-        Clients.findAll({})
+        Clients.findAll()
         .then(clients => {
             console.log(clients)
             res.status(200).json(clients)
@@ -17,11 +17,7 @@ function ClientsController () {
     this.postData = (req, res, next) => {
         const data = req.body
         console.log(data)
-        Clients.create({
-            name: data.name,
-            age: data.age,
-            photo: data.photo
-        })
+        Clients.create(data)
         .then(client => {
             console.log(client)
             console.log(client.dataValues)

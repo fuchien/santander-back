@@ -1,7 +1,10 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const datasource = require('../config/datasource')
+
 
 const app = express()
+app.datasource = datasource(app)
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
