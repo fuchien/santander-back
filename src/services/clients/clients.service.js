@@ -1,15 +1,18 @@
-const app = require('../../server')
-const Clients = app.datasource.models.Clients
 
-function ClientsService () {
+class ClientsService {
 
-    this.postClient = (data) => {
+    constructor (
+        Clients
+    ) {
+        this.Clients = Clients
+    }
+
+    postClient (data) {
 
         return new Promise((resolve, reject) => {
 
-            Clients.create(data)
+            this.Clients.create(data)
                 .then(client => {
-                    console.log(client)
                     resolve({
                         datas: client.dataValues,
                         msg: 'Success to save!'
@@ -20,11 +23,11 @@ function ClientsService () {
         })
     }
 
-    this.getAllClients = () => {
+    getAllClients () {
 
         return new Promise((resolve, reject) => {
 
-            Clients.findAll()
+            this.Clients.findAll()
                 .then(clients => {
                     resolve(clients)
                 })
@@ -34,11 +37,11 @@ function ClientsService () {
         })
     }
 
-    this.getClientByName = (name) => {
+    getClientByName (name) {
 
         return new Promise((resolve, reject) => {
 
-            Clients.findAll({
+            this.Clients.findAll({
                 where: {
                     clientName: {
                         $like : `%${name}%`
@@ -55,4 +58,4 @@ function ClientsService () {
     }
 }
 
-module.exports = () => new ClientsService()
+module.exports = ClientsService

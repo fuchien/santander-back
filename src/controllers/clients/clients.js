@@ -1,6 +1,10 @@
-const clientsService = require('../../services/clients/clients.service')()
+const ClientsService = require('../../services/clients/clients.service')
+const app = require('../../server')
+const Clients = app.datasource.models.Clients
 
 function ClientsController () {
+
+    const clientsService = new ClientsService(Clients)
 
     this.getAllClients = async (req, res, next) => {
         try {
