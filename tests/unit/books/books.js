@@ -109,21 +109,5 @@ describe('Controllers: Books', () => {
           expect(response.data).to.be.eql(expectedResponse)
         })
     });
-    it('should return a book searched by Author Error', () => {
-      const Books = {
-        findAll: td.function(),
-      };
-
-      const errorMsg = `Error`
-
-      td.when(Books.findAll({where : {$like : `%Book%`}})).thenThrow(new Error(errorMsg));
-      const booksServices = new BooksServices(Books);
-
-      booksServices.getBookByAuthor(`Book`)
-        .then(err => {
-          console.log(`ERROR ---> `, err)
-          expect(err).to.be.eql(errorMsg)
-        })
-    });
   });
 });
