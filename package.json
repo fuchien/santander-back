@@ -7,7 +7,7 @@
     "start": "node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test-integration": "mocha --opts tests/integrations/mocha.opts tests/integrations/**/*.js",
-    "test-unit": "nyc mocha --opts tests/unit/mocha.opts tests/unit/**/*.js"
+    "test-unit": "nyc --reporter=html --reporter=text mocha --opts tests/unit/mocha.opts tests/unit/**/*.js"
   },
   "author": "Chiien",
   "license": "ISC",
