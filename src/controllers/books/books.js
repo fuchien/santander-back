@@ -1,6 +1,10 @@
-const booksService = require('../../services/books/books.service')()
+const app = require('../../server')
+const Books = app.datasource.models.Books
+const BooksService = require('../../services/books/books.service')
 
 function BooksController () {
+
+    const booksService = new BooksService(Books)
 
     this.getAllBooks = async (req, res, next) => {
         try {

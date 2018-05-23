@@ -1,13 +1,17 @@
-const app = require('../../server')
-const Books = app.datasource.models.Books
 
-function BooksService () {
+class BooksService {
 
-    this.postBook = (data) => {
+    constructor(
+        Books
+    ) {
+        this.Books = Books
+    }
+
+    postBook (data) {
 
         return new Promise((resolve, reject) => {
 
-            Books.create(data)
+            this.Books.create(data)
                 .then(book => {
                     console.log(book)
                     resolve({
@@ -20,11 +24,11 @@ function BooksService () {
         })
     }
 
-    this.getAllBooks = () => {
+    getAllBooks () {
 
         return new Promise((resolve, reject) => {
 
-            Books.findAll()
+            this.Books.findAll()
                 .then(books => {
                     resolve(books)
                 })
@@ -34,11 +38,11 @@ function BooksService () {
         })
     }
 
-    this.getBookByTitle = (title) => {
+    getBookByTitle (title) {
 
         return new Promise((resolve, reject) => {
 
-            Books.findAll({
+            this.Books.findAll({
                 where: {
                     title: {
                         $like : `%${title}%`
@@ -54,11 +58,11 @@ function BooksService () {
         })
     }
 
-    this.getBookByAuthor = (author) => {
+    getBookByAuthor (author) {
 
         return new Promise((resolve, reject) => {
 
-            Books.findAll({
+            this.Books.findAll({
                 where: {
                     author: {
                         $like : `%${author}%`
@@ -75,4 +79,4 @@ function BooksService () {
     }
 }
 
-module.exports = () => new BooksService()
+module.exports = BooksService

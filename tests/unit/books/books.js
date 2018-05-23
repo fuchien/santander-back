@@ -1,10 +1,11 @@
 const BooksController = require('../../../src/controllers/books/books')()
+const BooksServices = require('../../../src/services/books/books.service')
 
 describe('Controllers: Books', () => {
   describe('Get all books: getAll()', () => {
     it('should return a list of books', () => {
       const Books = {
-        getAllBooks: td.function(),
+        findAll: td.function(),
       };
 
       const expectedResponse = [{
@@ -16,10 +17,13 @@ describe('Controllers: Books', () => {
         updated_at: '2016-08-06T23:55:36.692Z',
       }];
 
-      td.when(BooksController.getAllBooks()).thenReturn(expectedResponse);
+      td.when(Books.findAll({})).thenReturn(expectedResponse);
+      const booksServices = new BooksServices(Books);
 
-      return BooksController.getAllBooks()
-        .then(response => expect(response.data).to.be.eql(expectedResponse));
+      booksServices.getAllBooks()
+        .then(response => {
+          expect(response.data).to.be.eql(expectedResponse)
+        })
     });
   });
 });
