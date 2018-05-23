@@ -59,7 +59,7 @@ describe('Controllers: Clients', () => {
       clientsServices.postClient(requestedResponse)
         .then(response => expect(response.data).to.be.eql(expectedResponse))
     });
-    it('should save a client', () => {
+    it('should save a client ERROR', () => {
       const Clients = {
         create: td.function(),
       };
@@ -100,7 +100,7 @@ describe('Controllers: Clients', () => {
           expect(response.data).to.be.eql(expectedResponse)
         })
     });
-    it('should return a client searched by Name', () => {
+    it('should return a client searched by Name ERROR', () => {
       const Clients = {
         findAll: td.function(),
       };

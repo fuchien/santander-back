@@ -13,7 +13,6 @@ class BooksService {
 
             this.Books.create(data)
                 .then(book => {
-                    console.log(book)
                     resolve({
                         datas: book.dataValues,
                         msg: 'Success to save!'
