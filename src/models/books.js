@@ -6,6 +6,13 @@ module.exports = (sequelize, DataType) => {
             primaryKey: true,
             autoIncrement: true
         },
+        author: {
+            type: DataType.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
         title: {
             type: DataType.STRING,
             allowNull: false,

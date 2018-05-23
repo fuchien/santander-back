@@ -28,6 +28,15 @@ function BooksController () {
             res.status(400).json(err)
         } 
     }
+
+    this.getBookByAuthor = async (req, res, next) => {
+        try {
+            let books = await booksService.getBookByAuthor(req.params.author)
+            res.status(200).json(books)
+        } catch (err) {
+            res.status(400).json(err)
+        } 
+    }
 }
 
 module.exports = () => new BooksController()

@@ -53,6 +53,26 @@ function BooksService () {
             })
         })
     }
+
+    this.getBookByAuthor = (author) => {
+
+        return new Promise((resolve, reject) => {
+
+            Books.findAll({
+                where: {
+                    author: {
+                        $like : `%${author}%`
+                    }
+                }
+            })
+            .then(books => {
+                resolve(books)
+            })
+            .catch(err => {
+                reject(err)
+            })
+        })
+    }
 }
 
 module.exports = () => new BooksService()
