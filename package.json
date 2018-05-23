@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test-integration": "mocha --opts tests/integrations/mocha.opts tests/integrations/**/*.js"
+    "test-integration": "mocha --opts tests/integrations/mocha.opts tests/integrations/**/*.js",
+    "test-unit": "mocha --opts tests/unit/mocha.opts tests/unit/**/*.js"
   },
   "author": "Chiien",
   "license": "ISC",
@@ -19,6 +20,7 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
-    "supertest": "^3.1.0"
+    "supertest": "^3.1.0",
+    "testdouble": "^3.8.1"
   }
 }
