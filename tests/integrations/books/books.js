@@ -1,5 +1,4 @@
 
-
 describe(`Routes Books`, () => {
 
     const Books = app.datasource.models.Books
@@ -25,12 +24,7 @@ describe(`Routes Books`, () => {
             request
                 .get(`/books`)
                 .end((err, res) => {
-                    // console.log('BOOKS ---> ', res)
-                    // expect(res.body[0].id).to.be.eql(defaultBook.id)
-                    // expect(res.body[0].title).to.be.eql(defaultBook.title)
-                    // expect(res.body[0].subtitle).to.be.eql(defaultBook.subtitle)
-                    // expect(res.body[0].author).to.be.eql(defaultBook.author)
-                    // expect(res.body[0].photo).to.be.eql(defaultBook.photo)
+                    expect(res.body).to.be.an('object');
                     done(err)
                 })
         })
