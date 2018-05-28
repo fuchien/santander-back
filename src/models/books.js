@@ -6,13 +6,6 @@ module.exports = (sequelize, DataType) => {
             primaryKey: true,
             autoIncrement: true
         },
-        author: {
-            type: DataType.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
-        },
         title: {
             type: DataType.STRING,
             allowNull: false,
@@ -20,14 +13,28 @@ module.exports = (sequelize, DataType) => {
                 notEmpty: true
             }
         },
-        subtitle: {
+        author: {
             type: DataType.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
-        photo: {
+        yearPublished: {
+            type: DataType.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
+        price: {
+            type: DataType.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
+        rating: {
             type: DataType.STRING,
             allowNull: false,
             validate: {

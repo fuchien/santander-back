@@ -6,7 +6,14 @@ module.exports = (sequelize, DataType) => {
             primaryKey: true,
             autoIncrement: true
         },
-        clientName: {
+        fullName: {
+            type: DataType.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
+        gender: {
             type: DataType.STRING,
             allowNull: false,
             validate: {
@@ -20,7 +27,21 @@ module.exports = (sequelize, DataType) => {
                 notEmpty: true
             }
         },
-        photo: {
+        email: {
+            type: DataType.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
+        phone: {
+            type: DataType.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
+        username: {
             type: DataType.STRING,
             allowNull: false,
             validate: {

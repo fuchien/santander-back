@@ -43,7 +43,7 @@ class ClientsService {
 
             this.Clients.findAll({
                 where: {
-                    clientName: {
+                    fullName: {
                         $like : `%${name}%`
                     }
                 }
